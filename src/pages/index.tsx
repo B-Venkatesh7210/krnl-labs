@@ -4,15 +4,13 @@ import axios from "axios";
 export default function Home() {
   const [counter, setCounter] = useState(0);
 
-  // Fetch counter value
   const fetchCounter = async () => {
-    const response = await axios.get("http://localhost:5000/counter");
+    const response = await axios.get("/api/counter");
     setCounter(response.data.counter);
   };
 
-  // Increase counter
   const increaseCounter = async () => {
-    await axios.post("http://localhost:5000/increase");
+    await axios.post("/api/increase");
     fetchCounter();
   };
 
@@ -21,14 +19,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
-      <h1 className="text-3xl font-bold text-gray-800 mb-4">
-        KRNL Counter dApp
-      </h1>
-      <h2 className="text-2xl text-gray-700 mb-4">Counter: {counter}</h2>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold">KRNL Counter dApp</h1>
+      <h2 className="text-2xl mt-4">Counter: {counter}</h2>
       <button
         onClick={increaseCounter}
-        className="px-6 py-3 bg-blue-600 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-700 transition cursor-pointer"
+        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
       >
         Increase Counter
       </button>
