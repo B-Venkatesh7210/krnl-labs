@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   const increaseCounter = async () => {
-    await axios.post("/api/increase");
+    await axios.get("/api/increase");
     fetchCounter();
   };
 
