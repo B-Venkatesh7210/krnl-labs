@@ -20,37 +20,37 @@ export default function Home() {
     fetchCounter();
   };
 
-  async function executeKrnl() {
-    const krnlPayload = await provider.executeKernels(
-      entryId,
-      accessToken,
-      kernelRequestData,
-      functionParams
-    );
-    return krnlPayload;
-  }
+  // async function executeKrnl() {
+  //   const krnlPayload = await provider.executeKernels(
+  //     entryId,
+  //     accessToken,
+  //     kernelRequestData,
+  //     functionParams
+  //   );
+  //   return krnlPayload;
+  // }
 
-  async function callContractProtectedFunction(executeResult) {
-    const krnlPayload = {
-      auth: executeResult.auth,
-      kernelResponses: executeResult.kernel_responses,
-      kernelParams: executeResult.kernel_params,
-    };
-    const tx = await contract.protectedFunction(krnlPayload, textInput);
-    return tx.hash;
-  }
+  // async function callContractProtectedFunction(executeResult) {
+  //   const krnlPayload = {
+  //     auth: executeResult.auth,
+  //     kernelResponses: executeResult.kernel_responses,
+  //     kernelParams: executeResult.kernel_params,
+  //   };
+  //   const tx = await contract.protectedFunction(krnlPayload, textInput);
+  //   return tx.hash;
+  // }
 
   const sendTxn = async () => {
-    try {
-      const krnlPayload = await executeKrnl();
-      if (krnlPayload) {
-        console.log(krnlPayload);
-        const tx = await callContractProtectedFunction(krnlPayload);
-        console.log("Transaction Hash is:", tx);
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    // try {
+    //   const krnlPayload = await executeKrnl();
+    //   if (krnlPayload) {
+    //     console.log(krnlPayload);
+    //     const tx = await callContractProtectedFunction(krnlPayload);
+    //     console.log("Transaction Hash is:", tx);
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
     console.log("Sending transaction");
     sendTransaction({
       to: "0x97A907011c57AD4880aeE2245705234328330c6c",
